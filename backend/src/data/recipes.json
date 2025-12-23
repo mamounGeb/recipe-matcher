@@ -1,0 +1,471 @@
+[
+  {
+    "id": "1",
+    "name": "Spaghetti Carbonara",
+    "ingredients": ["spaghetti", "eggs", "bacon", "parmesan cheese", "black pepper", "garlic"],
+    "instructions": [
+      "Cook spaghetti according to package directions",
+      "Fry bacon until crispy, then add garlic",
+      "Beat eggs with parmesan cheese",
+      "Drain pasta and immediately mix with egg mixture",
+      "Add bacon and toss everything together",
+      "Season with black pepper and serve"
+    ],
+    "dietaryTags": [],
+    "prepTime": 20,
+    "servings": 4
+  },
+  {
+    "id": "2",
+    "name": "Vegetable Stir Fry",
+    "ingredients": ["broccoli", "carrots", "bell peppers", "soy sauce", "garlic", "ginger", "vegetable oil", "rice"],
+    "instructions": [
+      "Cook rice according to package directions",
+      "Heat oil in a large wok or pan",
+      "Add garlic and ginger, stir for 30 seconds",
+      "Add vegetables and stir fry for 5-7 minutes",
+      "Add soy sauce and continue cooking for 2 minutes",
+      "Serve over rice"
+    ],
+    "dietaryTags": ["vegan", "vegetarian", "gluten-free"],
+    "prepTime": 15,
+    "servings": 4
+  },
+  {
+    "id": "3",
+    "name": "Chicken Caesar Salad",
+    "ingredients": ["chicken breast", "romaine lettuce", "parmesan cheese", "caesar dressing", "croutons", "lemon"],
+    "instructions": [
+      "Cook and slice chicken breast",
+      "Wash and chop romaine lettuce",
+      "Toss lettuce with caesar dressing",
+      "Add chicken, croutons, and parmesan",
+      "Squeeze lemon over salad and serve"
+    ],
+    "dietaryTags": [],
+    "prepTime": 20,
+    "servings": 2
+  },
+  {
+    "id": "4",
+    "name": "Avocado Toast",
+    "ingredients": ["bread", "avocado", "lemon", "salt", "pepper", "red pepper flakes"],
+    "instructions": [
+      "Toast bread slices",
+      "Mash avocado with lemon juice, salt, and pepper",
+      "Spread avocado mixture on toast",
+      "Sprinkle with red pepper flakes and serve"
+    ],
+    "dietaryTags": ["vegan", "vegetarian"],
+    "prepTime": 5,
+    "servings": 2
+  },
+  {
+    "id": "5",
+    "name": "Beef Tacos",
+    "ingredients": ["ground beef", "taco shells", "lettuce", "tomatoes", "cheddar cheese", "sour cream", "onion", "taco seasoning"],
+    "instructions": [
+      "Brown ground beef with onion",
+      "Add taco seasoning and cook according to package",
+      "Warm taco shells",
+      "Fill shells with beef, lettuce, tomatoes, cheese",
+      "Top with sour cream and serve"
+    ],
+    "dietaryTags": [],
+    "prepTime": 25,
+    "servings": 4
+  },
+  {
+    "id": "6",
+    "name": "Quinoa Salad",
+    "ingredients": ["quinoa", "cucumber", "tomatoes", "red onion", "feta cheese", "olive oil", "lemon", "fresh herbs"],
+    "instructions": [
+      "Cook quinoa and let cool",
+      "Dice cucumber, tomatoes, and red onion",
+      "Mix vegetables with quinoa",
+      "Add crumbled feta cheese",
+      "Dress with olive oil and lemon juice",
+      "Add fresh herbs and serve"
+    ],
+    "dietaryTags": ["vegetarian", "gluten-free"],
+    "prepTime": 20,
+    "servings": 4
+  },
+  {
+    "id": "7",
+    "name": "Pasta with Marinara Sauce",
+    "ingredients": ["pasta", "tomatoes", "garlic", "onion", "olive oil", "basil", "salt", "pepper"],
+    "instructions": [
+      "Cook pasta according to package directions",
+      "Heat olive oil and sauté garlic and onion",
+      "Add diced tomatoes and cook for 10 minutes",
+      "Season with salt, pepper, and basil",
+      "Toss with pasta and serve"
+    ],
+    "dietaryTags": ["vegan", "vegetarian"],
+    "prepTime": 20,
+    "servings": 4
+  },
+  {
+    "id": "8",
+    "name": "Grilled Salmon",
+    "ingredients": ["salmon fillets", "lemon", "olive oil", "dill", "salt", "pepper", "asparagus"],
+    "instructions": [
+      "Season salmon with salt, pepper, and dill",
+      "Heat grill or pan with olive oil",
+      "Grill salmon for 4-5 minutes per side",
+      "Grill asparagus alongside salmon",
+      "Serve with lemon wedges"
+    ],
+    "dietaryTags": ["gluten-free", "dairy-free", "low-carb", "keto"],
+    "prepTime": 15,
+    "servings": 2
+  },
+  {
+    "id": "9",
+    "name": "Chocolate Chip Cookies",
+    "ingredients": ["flour", "butter", "sugar", "brown sugar", "eggs", "vanilla extract", "chocolate chips", "baking soda", "salt"],
+    "instructions": [
+      "Preheat oven to 375°F",
+      "Cream butter and sugars",
+      "Beat in eggs and vanilla",
+      "Mix in flour, baking soda, and salt",
+      "Stir in chocolate chips",
+      "Drop onto baking sheet and bake for 9-11 minutes"
+    ],
+    "dietaryTags": ["vegetarian"],
+    "prepTime": 30,
+    "servings": 24
+  },
+  {
+    "id": "10",
+    "name": "Chicken Curry",
+    "ingredients": ["chicken", "onion", "garlic", "ginger", "curry powder", "coconut milk", "tomatoes", "rice"],
+    "instructions": [
+      "Cook rice according to package directions",
+      "Heat oil and sauté onion, garlic, and ginger",
+      "Add chicken and cook until browned",
+      "Add curry powder and cook for 1 minute",
+      "Add tomatoes and coconut milk, simmer for 20 minutes",
+      "Serve over rice"
+    ],
+    "dietaryTags": ["gluten-free", "dairy-free"],
+    "prepTime": 35,
+    "servings": 4
+  },
+  {
+    "id": "11",
+    "name": "Greek Salad",
+    "ingredients": ["cucumber", "tomatoes", "red onion", "kalamata olives", "feta cheese", "olive oil", "lemon", "oregano"],
+    "instructions": [
+      "Dice cucumber and tomatoes",
+      "Slice red onion thinly",
+      "Mix vegetables with olives",
+      "Add crumbled feta cheese",
+      "Dress with olive oil, lemon juice, and oregano",
+      "Serve immediately"
+    ],
+    "dietaryTags": ["vegetarian", "gluten-free"],
+    "prepTime": 10,
+    "servings": 4
+  },
+  {
+    "id": "12",
+    "name": "Omelette",
+    "ingredients": ["eggs", "butter", "cheese", "salt", "pepper", "chives"],
+    "instructions": [
+      "Beat eggs with salt and pepper",
+      "Heat butter in a non-stick pan",
+      "Pour in eggs and cook until set",
+      "Add cheese and chives",
+      "Fold omelette in half and serve"
+    ],
+    "dietaryTags": ["vegetarian", "gluten-free", "low-carb", "keto"],
+    "prepTime": 5,
+    "servings": 1
+  },
+  {
+    "id": "13",
+    "name": "Vegetable Soup",
+    "ingredients": ["carrots", "celery", "onion", "potatoes", "vegetable broth", "garlic", "herbs", "salt", "pepper"],
+    "instructions": [
+      "Dice all vegetables",
+      "Heat oil and sauté onion and garlic",
+      "Add remaining vegetables and cook for 5 minutes",
+      "Add vegetable broth and bring to boil",
+      "Simmer for 20 minutes until vegetables are tender",
+      "Season with herbs, salt, and pepper"
+    ],
+    "dietaryTags": ["vegan", "vegetarian", "gluten-free", "dairy-free"],
+    "prepTime": 30,
+    "servings": 6
+  },
+  {
+    "id": "14",
+    "name": "Pancakes",
+    "ingredients": ["flour", "milk", "eggs", "butter", "sugar", "baking powder", "salt", "maple syrup"],
+    "instructions": [
+      "Mix dry ingredients in a bowl",
+      "Beat eggs and mix with milk and melted butter",
+      "Combine wet and dry ingredients",
+      "Cook pancakes on griddle until golden",
+      "Serve with maple syrup"
+    ],
+    "dietaryTags": ["vegetarian"],
+    "prepTime": 15,
+    "servings": 4
+  },
+  {
+    "id": "15",
+    "name": "Sushi Rolls",
+    "ingredients": ["sushi rice", "nori sheets", "cucumber", "avocado", "carrots", "soy sauce", "wasabi", "ginger"],
+    "instructions": [
+      "Cook and season sushi rice",
+      "Place nori on bamboo mat",
+      "Spread rice on nori",
+      "Add cucumber, avocado, and carrots",
+      "Roll tightly and slice",
+      "Serve with soy sauce, wasabi, and ginger"
+    ],
+    "dietaryTags": ["vegan", "vegetarian", "gluten-free", "dairy-free"],
+    "prepTime": 45,
+    "servings": 4
+  },
+  {
+    "id": "16",
+    "name": "Beef Stew",
+    "ingredients": ["beef", "potatoes", "carrots", "onion", "beef broth", "tomato paste", "garlic", "herbs"],
+    "instructions": [
+      "Brown beef in a large pot",
+      "Add onion and garlic, cook until soft",
+      "Add tomato paste and cook for 1 minute",
+      "Add broth, vegetables, and herbs",
+      "Simmer for 1.5 hours until meat is tender",
+      "Season and serve"
+    ],
+    "dietaryTags": ["gluten-free", "dairy-free"],
+    "prepTime": 120,
+    "servings": 6
+  },
+  {
+    "id": "17",
+    "name": "Caprese Salad",
+    "ingredients": ["tomatoes", "mozzarella cheese", "basil", "olive oil", "balsamic vinegar", "salt", "pepper"],
+    "instructions": [
+      "Slice tomatoes and mozzarella",
+      "Arrange on plate alternating slices",
+      "Tear basil leaves and scatter over top",
+      "Drizzle with olive oil and balsamic",
+      "Season with salt and pepper"
+    ],
+    "dietaryTags": ["vegetarian", "gluten-free"],
+    "prepTime": 10,
+    "servings": 4
+  },
+  {
+    "id": "18",
+    "name": "Chicken Noodle Soup",
+    "ingredients": ["chicken", "noodles", "carrots", "celery", "onion", "chicken broth", "garlic", "herbs"],
+    "instructions": [
+      "Cook chicken in broth until tender",
+      "Remove chicken and shred",
+      "Add vegetables and cook until tender",
+      "Add noodles and cook according to package",
+      "Return chicken to pot",
+      "Season with herbs and serve"
+    ],
+    "dietaryTags": [],
+    "prepTime": 40,
+    "servings": 6
+  },
+  {
+    "id": "19",
+    "name": "Ratatouille",
+    "ingredients": ["eggplant", "zucchini", "tomatoes", "bell peppers", "onion", "garlic", "olive oil", "herbs"],
+    "instructions": [
+      "Slice all vegetables",
+      "Heat olive oil in a large pan",
+      "Sauté onion and garlic",
+      "Add vegetables in layers",
+      "Cook for 30 minutes until tender",
+      "Season with herbs and serve"
+    ],
+    "dietaryTags": ["vegan", "vegetarian", "gluten-free", "dairy-free"],
+    "prepTime": 45,
+    "servings": 6
+  },
+  {
+    "id": "20",
+    "name": "Fish Tacos",
+    "ingredients": ["white fish", "tortillas", "cabbage", "lime", "cilantro", "avocado", "sour cream", "spices"],
+    "instructions": [
+      "Season and cook fish",
+      "Warm tortillas",
+      "Shred cabbage and mix with lime",
+      "Assemble tacos with fish, cabbage, avocado",
+      "Top with sour cream and cilantro",
+      "Serve with lime wedges"
+    ],
+    "dietaryTags": ["gluten-free"],
+    "prepTime": 20,
+    "servings": 4
+  },
+  {
+    "id": "21",
+    "name": "Mushroom Risotto",
+    "ingredients": ["arborio rice", "mushrooms", "onion", "white wine", "chicken broth", "parmesan cheese", "butter", "garlic"],
+    "instructions": [
+      "Sauté mushrooms and set aside",
+      "Cook onion and garlic until soft",
+      "Add rice and toast for 2 minutes",
+      "Add wine and cook until absorbed",
+      "Add broth one ladle at a time, stirring constantly",
+      "Stir in mushrooms, butter, and parmesan",
+      "Serve immediately"
+    ],
+    "dietaryTags": ["vegetarian"],
+    "prepTime": 35,
+    "servings": 4
+  },
+  {
+    "id": "22",
+    "name": "Cauliflower Fried Rice",
+    "ingredients": ["cauliflower", "eggs", "soy sauce", "garlic", "ginger", "peas", "carrots", "sesame oil"],
+    "instructions": [
+      "Grate cauliflower into rice-like pieces",
+      "Scramble eggs and set aside",
+      "Heat sesame oil and cook garlic and ginger",
+      "Add vegetables and cook until tender",
+      "Add cauliflower and cook for 5 minutes",
+      "Add eggs, soy sauce, and serve"
+    ],
+    "dietaryTags": ["gluten-free", "low-carb", "keto"],
+    "prepTime": 20,
+    "servings": 4
+  },
+  {
+    "id": "23",
+    "name": "Lentil Soup",
+    "ingredients": ["lentils", "onion", "carrots", "celery", "garlic", "vegetable broth", "tomatoes", "herbs", "lemon"],
+    "instructions": [
+      "Sauté onion, carrots, celery, and garlic",
+      "Add lentils and broth",
+      "Bring to boil and simmer for 30 minutes",
+      "Add tomatoes and cook for 10 more minutes",
+      "Season with herbs and lemon juice",
+      "Serve hot"
+    ],
+    "dietaryTags": ["vegan", "vegetarian", "gluten-free", "dairy-free"],
+    "prepTime": 45,
+    "servings": 6
+  },
+  {
+    "id": "24",
+    "name": "Baked Chicken",
+    "ingredients": ["chicken thighs", "potatoes", "carrots", "onion", "olive oil", "herbs", "salt", "pepper"],
+    "instructions": [
+      "Preheat oven to 400°F",
+      "Season chicken with herbs, salt, and pepper",
+      "Toss vegetables with olive oil",
+      "Arrange chicken and vegetables on baking sheet",
+      "Bake for 35-40 minutes until chicken is cooked",
+      "Serve hot"
+    ],
+    "dietaryTags": ["gluten-free", "dairy-free"],
+    "prepTime": 50,
+    "servings": 4
+  },
+  {
+    "id": "25",
+    "name": "Hummus",
+    "ingredients": ["chickpeas", "tahini", "lemon", "garlic", "olive oil", "salt", "cumin"],
+    "instructions": [
+      "Drain and rinse chickpeas",
+      "Blend chickpeas with tahini, lemon, and garlic",
+      "Add olive oil gradually while blending",
+      "Season with salt and cumin",
+      "Serve with vegetables or pita"
+    ],
+    "dietaryTags": ["vegan", "vegetarian", "gluten-free", "dairy-free", "nut-free"],
+    "prepTime": 10,
+    "servings": 6
+  },
+  {
+    "id": "26",
+    "name": "Pizza Margherita",
+    "ingredients": ["pizza dough", "tomato sauce", "mozzarella cheese", "basil", "olive oil", "garlic"],
+    "instructions": [
+      "Preheat oven to 475°F",
+      "Roll out pizza dough",
+      "Spread tomato sauce on dough",
+      "Add mozzarella cheese",
+      "Bake for 10-12 minutes",
+      "Top with fresh basil and drizzle with olive oil"
+    ],
+    "dietaryTags": ["vegetarian"],
+    "prepTime": 25,
+    "servings": 4
+  },
+  {
+    "id": "27",
+    "name": "Tofu Stir Fry",
+    "ingredients": ["tofu", "broccoli", "carrots", "bell peppers", "soy sauce", "garlic", "ginger", "rice"],
+    "instructions": [
+      "Press and cube tofu",
+      "Cook rice according to package",
+      "Heat oil and cook tofu until golden",
+      "Add vegetables and stir fry",
+      "Add garlic, ginger, and soy sauce",
+      "Serve over rice"
+    ],
+    "dietaryTags": ["vegan", "vegetarian", "gluten-free", "dairy-free"],
+    "prepTime": 25,
+    "servings": 4
+  },
+  {
+    "id": "28",
+    "name": "Greek Yogurt Parfait",
+    "ingredients": ["greek yogurt", "granola", "berries", "honey"],
+    "instructions": [
+      "Layer yogurt in a glass",
+      "Add granola",
+      "Add berries",
+      "Drizzle with honey",
+      "Repeat layers and serve"
+    ],
+    "dietaryTags": ["vegetarian", "gluten-free"],
+    "prepTime": 5,
+    "servings": 1
+  },
+  {
+    "id": "29",
+    "name": "Shrimp Scampi",
+    "ingredients": ["shrimp", "pasta", "garlic", "butter", "white wine", "lemon", "parsley", "red pepper flakes"],
+    "instructions": [
+      "Cook pasta according to package",
+      "Heat butter and cook garlic",
+      "Add shrimp and cook until pink",
+      "Add white wine and lemon juice",
+      "Toss with pasta and parsley",
+      "Serve with red pepper flakes"
+    ],
+    "dietaryTags": [],
+    "prepTime": 20,
+    "servings": 4
+  },
+  {
+    "id": "30",
+    "name": "Black Bean Burgers",
+    "ingredients": ["black beans", "onion", "garlic", "breadcrumbs", "eggs", "spices", "burger buns", "toppings"],
+    "instructions": [
+      "Mash black beans",
+      "Mix with onion, garlic, breadcrumbs, eggs, and spices",
+      "Form into patties",
+      "Cook patties in pan until golden",
+      "Serve on buns with desired toppings"
+    ],
+    "dietaryTags": ["vegetarian"],
+    "prepTime": 30,
+    "servings": 4
+  }
+]

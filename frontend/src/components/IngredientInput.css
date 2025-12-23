@@ -1,0 +1,148 @@
+.ingredient-input-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.ingredient-input-header {
+  margin-bottom: 1.5rem;
+}
+
+.ingredient-input-header h2 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.ingredient-input-header p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.ingredient-input-wrapper {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.ingredient-input {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.ingredient-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.add-button {
+  padding: 0.875rem 2rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-button:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.add-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.ingredients-list {
+  margin-top: 1.5rem;
+}
+
+.ingredients-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ingredients-count {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.clear-all-button {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-all-button:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+.ingredient-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ingredient-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f0f4ff;
+  color: #667eea;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.remove-tag-button {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.remove-tag-button:hover {
+  background: rgba(102, 126, 234, 0.2);
+}
+
+@media (max-width: 768px) {
+  .ingredient-input-container {
+    padding: 1.5rem;
+  }
+
+  .ingredient-input-wrapper {
+    flex-direction: column;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+}
