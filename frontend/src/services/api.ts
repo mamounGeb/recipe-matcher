@@ -70,3 +70,28 @@ export async function getAllRecipes(): Promise<Recipe[]> {
     throw error;
   }
 }
+
+/**
+ * Get ingredient suggestions based on query string
+ */
+export async function getIngredientSuggestions(query: string): Promise<string[]> {
+  try {
+    if (!query.trim()) {
+      return [];
+    }
+    
+    const url = new URL(`${API_BASE_URL}/recipes/ingredients/suggestions`);
+    url.searchParams.set('q', query);
+    
+    const response = await fetch(url.toString());
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch ingredient suggestions');
+    }
+    
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching ingredient suggestions:', error);
+    return [];
+  }
+}

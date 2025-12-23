@@ -80,6 +80,45 @@ router.get('/search', (req: Request, res: Response) => {
 });
 
 /**
+ * GET /api/recipes/ingredients/suggestions
+ * Get ingredient suggestions based on query string
+ * Query params:
+ *   - q: search query string
+ */
+router.get('/ingredients/suggestions', (req: Request, res: Response) => {
+  try {
+    const query = (req.query.q as string)?.trim().toLowerCase() || '';
+    
+    if (query.length < 1) {
+      return res.json([]);
+    }
+    
+    // Collect all unique ingredients from all recipes (preserve original casing)
+    const allIngredients = new Map<string, string>(); // lowercase -> original
+    recipes.forEach(recipe => {
+      recipe.ingredients.forEach(ingredient => {
+        const lowerKey = ingredient.toLowerCase();
+        if (!allIngredients.has(lowerKey)) {
+          allIngredients.set(lowerKey, ingredient);
+        }
+      });
+    });
+    
+    // Filter ingredients that match the query (compare lowercase, return original)
+    const suggestions = Array.from(allIngredients.entries())
+      .filter(([lowerKey]) => lowerKey.includes(query))
+      .map(([, original]) => original)
+      .sort((a, b) => a.localeCompare(b))
+      .slice(0, 10); // Limit to 10 suggestions
+    
+    res.json(suggestions);
+  } catch (error) {
+    console.error('Error fetching ingredient suggestions:', error);
+    res.status(500).json({ error: 'Failed to fetch ingredient suggestions' });
+  }
+});
+
+/**
  * GET /api/recipes/:id
  * Get a specific recipe by ID
  */
