@@ -30,3 +30,17 @@ export interface SearchResponse {
   count: number;
   matches: RecipeMatch[];
 }
+
+export interface User {
+  id: string;
+  email: string;
+  name?: string;
+  createdAt: number;
+}
+
+export interface Favorite {
+  id: string;
+  userId: string;
+  recipeId: string;
+  addedAt: number;
+}

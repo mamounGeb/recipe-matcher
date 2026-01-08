@@ -1,6 +1,6 @@
 import { Recipe, RecipeMatch, DietaryTag, SearchResponse } from '../types';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = '/api';
 
 /**
  * Search for recipes based on ingredients and dietary filters
@@ -10,16 +10,15 @@ export async function searchRecipes(
   dietaryFilters: DietaryTag[] = []
 ): Promise<RecipeMatch[]> {
   try {
-    const ingredientsParam = ingredients.join(',');
-    const dietParam = dietaryFilters.length > 0 ? dietaryFilters.join(',') : '';
+    const ingredientsParam = encodeURIComponent(ingredients.join(','));
+    const dietParam = dietaryFilters.length > 0 ? encodeURIComponent(dietaryFilters.join(',')) : '';
     
-    const url = new URL(`${API_BASE_URL}/recipes/search`);
-    url.searchParams.set('ingredients', ingredientsParam);
+    let url = `${API_BASE_URL}/recipes/search?ingredients=${ingredientsParam}`;
     if (dietParam) {
-      url.searchParams.set('diet', dietParam);
+      url += `&diet=${dietParam}`;
     }
     
-    const response = await fetch(url.toString());
+    const response = await fetch(url);
     
     if (!response.ok) {
       const error = await response.json();
@@ -80,10 +79,9 @@ export async function getIngredientSuggestions(query: string): Promise<string[]>
       return [];
     }
     
-    const url = new URL(`${API_BASE_URL}/recipes/ingredients/suggestions`);
-    url.searchParams.set('q', query);
+    const url = `${API_BASE_URL}/recipes/ingredients/suggestions?q=${encodeURIComponent(query)}`;
     
-    const response = await fetch(url.toString());
+    const response = await fetch(url);
     
     if (!response.ok) {
       throw new Error('Failed to fetch ingredient suggestions');

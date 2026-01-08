@@ -46,11 +46,19 @@
 .ingredient-input:focus {
   outline: none;
   border-color: #667eea;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.ingredient-input:focus + .suggestions-dropdown,
+.autocomplete-container:focus-within .ingredient-input {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .suggestions-dropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% - 2px);
   left: 0;
   right: 0;
   background: white;
@@ -61,7 +69,6 @@
   overflow-y: auto;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: -2px;
 }
 
 .suggestion-item {

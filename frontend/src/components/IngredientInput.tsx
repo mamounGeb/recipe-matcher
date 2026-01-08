@@ -1,6 +1,8 @@
 import { useState, KeyboardEvent, useEffect, useRef } from 'react';
 import './IngredientInput.css';
-import { getIngredientSuggestions } from '../services/api';
+import { db } from '../lib/instantdb';
+import { Recipe } from '../types';
+import { getIngredientSuggestionsFromRecipes } from '../services/recipes';
 
 interface IngredientInputProps {
   ingredients: string[];
@@ -15,11 +17,15 @@ export default function IngredientInput({ ingredients, onIngredientsChange }: In
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
-  // Debounce API calls for ingredient suggestions
+  // Get recipes from InstantDB
+  const { data: recipesData } = db.useQuery({ recipes: {} });
+  const recipes = (recipesData?.recipes || []) as Recipe[];
+
+  // Debounce ingredient suggestions
   useEffect(() => {
-    const timer = setTimeout(async () => {
-      if (inputValue.trim().length > 0) {
-        const results = await getIngredientSuggestions(inputValue.trim());
+    const timer = setTimeout(() => {
+      if (inputValue.trim().length > 0 && recipes.length > 0) {
+        const results = getIngredientSuggestionsFromRecipes(recipes, inputValue.trim());
         setSuggestions(results);
         setShowSuggestions(results.length > 0);
         setSelectedIndex(-1);
@@ -30,7 +36,7 @@ export default function IngredientInput({ ingredients, onIngredientsChange }: In
     }, 300); // 300ms debounce
 
     return () => clearTimeout(timer);
-  }, [inputValue]);
+  }, [inputValue, recipes]);
 
   const handleAddIngredient = (ingredient?: string) => {
     const trimmed = (ingredient || inputValue).trim();
@@ -80,7 +86,12 @@ export default function IngredientInput({ ingredients, onIngredientsChange }: In
     }
   };
 
-  const handleInputBlur = () => {
+  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    // Check if focus is moving to a suggestion item
+    const relatedTarget = e.relatedTarget as HTMLElement;
+    if (relatedTarget && relatedTarget.closest('.suggestions-dropdown')) {
+      return; // Don't hide if clicking on a suggestion
+    }
     // Delay hiding suggestions to allow click events to fire
     setTimeout(() => {
       setShowSuggestions(false);
@@ -122,6 +133,10 @@ export default function IngredientInput({ ingredients, onIngredientsChange }: In
                   key={suggestion}
                   className={`suggestion-item ${index === selectedIndex ? 'selected' : ''}`}
                   onClick={() => handleSuggestionClick(suggestion)}
+                  onMouseDown={(e) => {
+                    e.preventDefault(); // Prevent input blur
+                    handleSuggestionClick(suggestion);
+                  }}
                   onMouseEnter={() => setSelectedIndex(index)}
                 >
                   {suggestion}

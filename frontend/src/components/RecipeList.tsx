@@ -1,4 +1,4 @@
-import { RecipeMatch } from '../types';
+import { RecipeMatch, Favorite } from '../types';
 import RecipeCard from './RecipeCard';
 import './RecipeList.css';
 
@@ -7,9 +7,11 @@ interface RecipeListProps {
   loading: boolean;
   error: string | null;
   hasSearched: boolean;
+  userId?: string;
+  favorites?: Favorite[];
 }
 
-export default function RecipeList({ matches, loading, error, hasSearched }: RecipeListProps) {
+export default function RecipeList({ matches, loading, error, hasSearched, userId, favorites = [] }: RecipeListProps) {
   if (loading) {
     return (
       <div className="recipe-list-container">
@@ -26,7 +28,7 @@ export default function RecipeList({ matches, loading, error, hasSearched }: Rec
       <div className="recipe-list-container">
         <div className="error-state">
           <p className="error-message">⚠️ {error}</p>
-          <p className="error-hint">Please make sure the backend server is running on port 3001</p>
+          <p className="error-hint">Please check your connection and try again.</p>
         </div>
       </div>
     );
@@ -60,7 +62,12 @@ export default function RecipeList({ matches, loading, error, hasSearched }: Rec
       </div>
       <div className="recipe-grid">
         {matches.map((match) => (
-          <RecipeCard key={match.recipe.id} match={match} />
+          <RecipeCard
+            key={match.recipe.id}
+            match={match}
+            userId={userId}
+            favorites={favorites}
+          />
         ))}
       </div>
     </div>
