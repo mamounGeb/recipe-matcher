@@ -1,38 +1,62 @@
 # Recipe Finder Application
 
-A full-stack web application that helps users find recipes based on available ingredients, with support for dietary restriction filtering.
+A full-stack web application that helps users find recipes based on available ingredients, with support for dietary restriction filtering and user favorites.
 
 ## Features
 
-- **Ingredient Input**: Enter multiple ingredients you have available
+- **User Authentication**: Magic code email authentication powered by InstantDB
+- **Ingredient Input**: Enter multiple ingredients with autocomplete suggestions
 - **Smart Recipe Matching**: Finds recipes that use your ingredients with intelligent scoring
-- **Dietary Filters**: Filter recipes by dietary restrictions (vegan, vegetarian, gluten-free, etc.)
+- **Dietary Filters**: Filter recipes by dietary restrictions (vegan, vegetarian, gluten-free, keto, low-carb, etc.)
 - **Recipe Details**: View full recipe instructions, ingredients, prep time, and servings
 - **Match Scoring**: Recipes sorted by relevance based on ingredient matches
+- **Favorites**: Save your favorite recipes for quick access
+- **Real-time Updates**: InstantDB provides real-time synchronization across devices
+- **Recipe Database**: 25+ sample recipes included, easily seedable
 
 ## Tech Stack
 
 - **Frontend**: React 18, TypeScript, Vite
-- **Backend**: Node.js, Express, TypeScript
-- **Database**: JSON file (30 recipes included)
+- **Database & Backend**: InstantDB (real-time database with built-in authentication)
+- **State Management**: React hooks with InstantDB reactive queries
 
 ## Project Structure
 
 ```
 recipe-finder/
-├── frontend/          # React frontend application
+├── frontend/                    # React frontend application
 │   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── services/      # API client
-│   │   └── ...
-│   └── package.json
-├── backend/           # Express backend API
-│   ├── src/
-│   │   ├── routes/        # API endpoints
-│   │   ├── services/      # Business logic
-│   │   ├── data/          # Recipe database
-│   │   └── ...
-│   └── package.json
+│   │   ├── components/          # React components
+│   │   │   ├── Auth.tsx         # Authentication component
+│   │   │   ├── Auth.css
+│   │   │   ├── IngredientInput.tsx
+│   │   │   ├── IngredientInput.css
+│   │   │   ├── FilterBar.tsx
+│   │   │   ├── FilterBar.css
+│   │   │   ├── RecipeCard.tsx   # Recipe card with favorite button
+│   │   │   ├── RecipeCard.css
+│   │   │   ├── RecipeList.tsx
+│   │   │   ├── RecipeList.css
+│   │   │   ├── FavoritesList.tsx
+│   │   │   ├── FavoritesList.css
+│   │   │   ├── SeedRecipes.tsx  # Database seeding component
+│   │   │   └── SeedRecipes.css
+│   │   ├── services/            # Business logic services
+│   │   │   ├── api.ts          # API utilities
+│   │   │   ├── recipes.ts      # Recipe search and matching
+│   │   │   └── favorites.ts    # Favorites operations
+│   │   ├── lib/                # Library configurations
+│   │   │   └── instantdb.ts   # InstantDB setup and schema
+│   │   ├── types.ts            # TypeScript type definitions
+│   │   ├── App.tsx             # Main application component
+│   │   ├── App.css             # Main application styles
+│   │   ├── index.css           # Global styles
+│   │   └── main.tsx            # Application entry point
+│   ├── index.html
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── tsconfig.node.json
+│   └── vite.config.ts
 └── README.md
 ```
 
@@ -42,16 +66,11 @@ recipe-finder/
 
 - Node.js (v18 or higher)
 - npm or yarn
+- An InstantDB account (free tier available at [instantdb.com](https://instantdb.com))
 
 ### Installation
 
-1. **Install backend dependencies:**
-   ```bash
-   cd backend
-   npm install
-   ```
-
-2. **Install frontend dependencies:**
+1. **Install frontend dependencies:**
    ```bash
    cd frontend
    npm install
@@ -59,44 +78,61 @@ recipe-finder/
 
 ### Running the Application
 
-1. **Start the backend server:**
-   ```bash
-   cd backend
-   npm run dev
-   ```
-   The backend will run on `http://localhost:3001`
-
-2. **Start the frontend development server:**
+1. **Start the frontend development server:**
    ```bash
    cd frontend
    npm run dev
    ```
-   The frontend will run on `http://localhost:3000`
+   The application will run on `http://localhost:5173` (or another port if 5173 is in use)
 
-3. **Open your browser:**
-   Navigate to `http://localhost:3000` to use the application
+2. **Open your browser:**
+   Navigate to the URL shown in the terminal to use the application
 
-## API Endpoints
+3. **Seed sample recipes:**
+   - When you first open the app, you'll see a "Seed Recipes" button
+   - Click it to add 25 sample recipes to your InstantDB database
+   - You can also seed recipes when signed in if the database is empty
 
-### GET `/api/recipes`
-Get all recipes
+4. **Sign in:**
+   - Enter your email address
+   - Click "Send Magic Code"
+   - Check your email for the 6-digit code
+   - Enter the code to sign in
 
-### GET `/api/recipes/search?ingredients=ing1,ing2&diet=vegan`
-Search recipes by ingredients and optional dietary filters
+5. **Start searching:**
+   - Add ingredients you have available
+   - Click "Search Recipes" to find matching recipes
+   - Use dietary filters to narrow down results
+   - Click the heart icon to save favorites
 
-**Query Parameters:**
-- `ingredients` (required): Comma-separated list of ingredients
-- `diet` (optional): Comma-separated list of dietary tags
+## Database Schema
 
-**Example:**
-```
-GET /api/recipes/search?ingredients=tomatoes,garlic,onion&diet=vegan,gluten-free
-```
+The application uses InstantDB with the following schema:
 
-### GET `/api/recipes/:id`
-Get a specific recipe by ID
+### Entities
+
+- **users**: User accounts
+  - `email`: Unique email address
+  - `name`: Optional display name
+  - `createdAt`: Timestamp
+
+- **recipes**: Recipe data
+  - `name`: Recipe title
+  - `ingredients`: Array of ingredient strings
+  - `instructions`: Array of instruction strings
+  - `dietaryTags`: Array of dietary tags (vegan, vegetarian, gluten-free, etc.)
+  - `prepTime`: Preparation time in minutes
+  - `servings`: Number of servings
+  - `createdAt`: Timestamp
+
+- **favorites**: User-recipe relationships
+  - `userId`: Reference to user
+  - `recipeId`: Reference to recipe
+  - `addedAt`: Timestamp
 
 ## How It Works
+
+### Recipe Search Algorithm
 
 1. **Ingredient Matching**: The algorithm normalizes ingredient names (case-insensitive, handles plurals) and matches them against recipe ingredients
 2. **Scoring**: Recipes are scored based on:
@@ -106,22 +142,59 @@ Get a specific recipe by ID
 3. **Filtering**: Recipes are filtered by dietary restrictions before scoring
 4. **Sorting**: Results are sorted by match score (highest first)
 
+### Data Flow
+
+1. **User Authentication**: Users sign in via InstantDB magic code authentication
+2. **Recipe Storage**: Recipes are stored in InstantDB and queried reactively using `useQuery`
+3. **Search**: When ingredients are entered and "Search Recipes" is clicked, the matching algorithm processes all recipes from InstantDB
+4. **Favorites**: Users can add/remove favorites, which are stored in InstantDB and sync in real-time
+5. **Real-time Updates**: InstantDB provides real-time synchronization, so changes appear instantly across all devices
+
 ## Development
 
-### Backend Scripts
-- `npm run dev` - Start development server with hot-reload
-- `npm run build` - Build for production
-- `npm start` - Start production server
-
 ### Frontend Scripts
-- `npm run dev` - Start development server
+- `npm run dev` - Start development server with hot-reload
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 
+### InstantDB Configuration
+
+The app uses InstantDB with App ID: `c278a485-c42a-4c8d-b6e2-0353122b264c`
+
+To use your own InstantDB instance:
+1. Sign up at [instantdb.com](https://instantdb.com)
+2. Create a new app
+3. Update the `APP_ID` in `frontend/src/lib/instantdb.ts`
+4. Define your schema in the InstantDB dashboard or via the schema definition in the code
+
+## Key Features Explained
+
+### Authentication
+- Uses InstantDB's built-in magic code authentication
+- No password required - users receive a code via email
+- Session persists across page refreshes
+
+### Recipe Matching
+- Intelligent ingredient matching handles plurals and case variations
+- Scores recipes based on ingredient coverage
+- Shows matched and missing ingredients for each recipe
+
+### Favorites
+- One-click favorite/unfavorite with heart icon
+- Favorites are user-specific and sync in real-time
+- View all favorites in dedicated "My Favorites" view
+
+### Real-time Sync
+- All data changes sync instantly across devices
+- No manual refresh needed
+- Powered by InstantDB's real-time subscriptions
+
 ## Future Enhancements
 
-- Database integration (SQLite/PostgreSQL)
-- User accounts and saved favorites
-- Recipe images
-- Advanced filtering (cuisine type, cooking time, etc.)
+- Recipe images and photos
+- Advanced filtering (cuisine type, cooking time, difficulty level)
 - Recipe recommendations based on user preferences
+- Shopping list generation from recipes
+- Recipe sharing between users
+- Meal planning features
+- Nutritional information
