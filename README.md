@@ -76,6 +76,13 @@ recipe-finder/
    npm install
    ```
 
+2. **Set up environment variables:**
+   ```bash
+   cd frontend
+   cp .env.example .env.local
+   ```
+   Then edit `.env.local` and add your InstantDB App ID (see [InstantDB Configuration](#instantdb-configuration) below).
+
 ### Running the Application
 
 1. **Start the frontend development server:**
@@ -159,13 +166,36 @@ The application uses InstantDB with the following schema:
 
 ### InstantDB Configuration
 
-The app uses InstantDB with App ID: `c278a485-c42a-4c8d-b6e2-0353122b264c`
+The app uses InstantDB for database and authentication. The App ID is configured via environment variables.
 
-To use your own InstantDB instance:
+**Local Development:**
+1. Copy `.env.example` to `.env.local`:
+   ```bash
+   cd frontend
+   cp .env.example .env.local
+   ```
+2. Update `.env.local` with your InstantDB App ID:
+   ```
+   VITE_INSTANTDB_APP_ID=your-instantdb-app-id-here
+   ```
+
+**Production (Vercel):**
+1. Go to your Vercel project settings
+2. Navigate to "Environment Variables"
+3. Add a new variable:
+   - Name: `VITE_INSTANTDB_APP_ID`
+   - Value: Your InstantDB App ID
+   - Environment: Production (and Preview if needed)
+4. Redeploy your application
+
+**To use your own InstantDB instance:**
 1. Sign up at [instantdb.com](https://instantdb.com)
 2. Create a new app
-3. Update the `APP_ID` in `frontend/src/lib/instantdb.ts`
-4. Define your schema in the InstantDB dashboard or via the schema definition in the code
+3. Get your App ID from the dashboard
+4. Set the `VITE_INSTANTDB_APP_ID` environment variable as described above
+5. Define your schema in the InstantDB dashboard or via the schema definition in the code
+
+**Default App ID:** The code includes a fallback App ID (`c278a485-c42a-4c8d-b6e2-0353122b264c`) for backward compatibility, but using environment variables is recommended for production.
 
 ## Key Features Explained
 

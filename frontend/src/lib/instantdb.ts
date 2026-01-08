@@ -1,6 +1,7 @@
 import { init } from '@instantdb/react';
 
-const APP_ID = 'c278a485-c42a-4c8d-b6e2-0353122b264c';
+// Get App ID from environment variable, fallback to default for backward compatibility
+const APP_ID = import.meta.env.VITE_INSTANTDB_APP_ID || 'c278a485-c42a-4c8d-b6e2-0353122b264c';
 
 type Schema = {
   users: {
